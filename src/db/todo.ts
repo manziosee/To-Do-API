@@ -1,4 +1,11 @@
-import mongoose from 'mongoose';
+import mongoose, { Document, Types } from 'mongoose';
+
+export interface Todo {
+  userId: Types.ObjectId; 
+  description: string;
+  completed: boolean;
+  createdAt: Date;
+}
 
 const TodoSchema = new mongoose.Schema({
   userId: { type: mongoose.Types.ObjectId, required: true },
@@ -7,4 +14,4 @@ const TodoSchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now },
 });
 
-export const TodoModel = mongoose.model('Todo', TodoSchema);
+export const TodoModel = mongoose.model<Document & Todo>('Todo', TodoSchema);

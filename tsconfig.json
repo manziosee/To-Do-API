@@ -1,11 +1,14 @@
 {
-    "compilerOptions": {
-      "module": "NodeNext",
-      "moduleResolution": "node",
-      "baseUrl": "src",
-      "outDir": "dist",
-      "sourceMap": true,
-      "noImplicitAny": true,
-    },
-    "include": ["src/**/*"],
-  }
+  "compilerOptions": {
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "baseUrl": "./",
+    "outDir": "./dist",
+    "target": "ES6",
+    "strict": true,
+    "esModuleInterop": true
+  },
+  "include": [
+    "src/**/*.ts"
+  ]
+}

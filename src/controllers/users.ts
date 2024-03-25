@@ -35,15 +35,17 @@ export const updateUser = async (req: express.Request, res: express.Response) =>
 
     const user = await getUserById(id);
     
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
     user.username = username;
     user.email = email;
     await user.save();
 
-    return res.status(200).json(user).end();
+    return res.status(200).json(user);
   } catch (error) {
     console.log(error);
     return res.sendStatus(400);
   }
 }
-
- 
